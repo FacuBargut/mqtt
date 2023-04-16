@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 
 
 app.get('/', (req, res) => {
-  res.status(200).send({msg:'Hola como va?'});
+  res.status(200).send({msg:'Hola Nahuel como va?'});
 });
 
 app.listen(PORT, () => {
