@@ -1,5 +1,25 @@
 var mqtt = require("mqtt");
 var client = mqtt.connect("mqtt://test.mosquitto.org");
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+
+
+app.get('/', (req, res) => {
+  res.status(200).send({msg:'Hola como va?'});
+});
+
+app.listen(PORT, () => {
+  console.log(`Tu server esta listo para ejecutar las cositas de MQTT en el puerto ${PORT}`);
+})
+
+
 
 function EventoConectar() {
   client.subscribe("fresquito/#", function (err) {
