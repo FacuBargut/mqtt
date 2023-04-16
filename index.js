@@ -13,10 +13,12 @@ app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.status(200).send({msg:'Hola Nahuel como va?'});
+  EventoConectar();
 });
 
 app.listen(PORT, () => {
   console.log(`Tu server esta listo para ejecutar las cositas de MQTT en el puerto ${PORT}`);
+  
 })
 
 
@@ -37,5 +39,5 @@ function EventoMensaje(topic, message) {
   // client.end()
 }
 
-client.on("connect", EventoConectar);
-client.on("message", EventoMensaje);
+// client.on("connect", EventoConectar);
+// client.on("message", EventoMensaje);
